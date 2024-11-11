@@ -1,12 +1,12 @@
 # End to End Customer Churn Prediction 
 
-## Problem Statement
+## :page_facing_up: Problem Statement
 Customer churn is a critical issue for businesses as it directly impacts profitability and growth. This application aims to predict whether a customer will leave a service or product based on historical data and behavioral patterns.
 
-## Objective
+## :dart: Objective
 The main objective of this application is to develop a machine learning model that accurately predicts customer churn. By identifying at-risk customers, businesses can take proactive measures to enhance customer retention and improve overall satisfaction.
 
-## Technological Stack
+## 🛠️ Technological Stack
 - **Python** -  The primary programming language used for development.
 - **Machine Learning** - Algorithms to analyze customer data and predict churn.
 - **MLOps** - Practices for deploying and maintaining machine learning models.
@@ -15,7 +15,7 @@ The main objective of this application is to develop a machine learning model th
 - **Streamlit** -  A user-friendly UI framework for creating interactive web applications.
 - **FastAPI & Flask** - Back-end frameworks to build APIs for model interactions.
 
-## Overview
+## 📝 Overview
 This design document outlines the development of a web application for predicting customer churn using a dataset that includes customer Age, Support Calls , Usage Frequency, Last Interaction, Tenure, Contract Length. The application will allow users to input customer data and receive predictions on churn likelihood.
 
 
@@ -89,31 +89,31 @@ streamlit run app/main.py`
 
 
 
-## Motivation
+## 💪 Motivation
 Understanding and addressing customer churn can significantly enhance customer loyalty and reduce marketing costs associated with acquiring new customers. This application provides insights that help businesses to implement effective retention strategies.
 
-## Success Metrics
+## 📈 Success Metrics
 The project's success will be measured using the following metrics:
 - Precision, Recall, and F1 Score of the churn prediction model.
 - Reduction in customer churn rates observed post-implementation.
 
-## Requirements & Constraints
+## 📑 Requirements & Constraints
 ### Functional Requirements
 - Users can input customer data to receive churn predictions.
 - Users can view performance metrics of the machine learning models.
 - The model should demonstrate high accuracy in predictions.
 
-### Constraints
+### 🚧 Constraints
 - The application must be built using FastAPI , Flask and Streamlit, with deployment on GCP  and Containerizer using Docker
 
-## Methodology
+## ⚙️ Methodology
 - **Problem Statement**: Develop a model to predict customer churn based on various features.
 - **Data**: Utilize a dataset containing customer-related features such as demographics and service usage.
 - **Techniques**: Employ data ingestion,  data preprocessing, feature engineering, model selection, training, and evaluation.
 **zenml** for 
 **MLFlow** for experiment tracking and model registry.
 
-## Architecture
+## 🏛️ Architecture
 The architecture of the web application consists of:
 - A **frontend** built using Streamlit for user interaction.
 - A **backend** server implemented with FastAPI for handling requests and serving predictions.
@@ -122,9 +122,9 @@ The architecture of the web application consists of:
 - Hosting on **Google Cloud Platform** with a CI/CD pipeline for automated deployment.
 
 
-## Pipeline 
+## 🖇️ Pipeline 
 
-![Image]("assets/architecture.png")
+![Image](assets/architecture.png)
 
 The MLOps (Machine Learning Operations) pipeline project is designed to create an end-to-end workflow for developing and deploying a web application that performs data preprocessing, model training, model evaluation, and prediction. The pipeline leverages Docker containers for encapsulating code, artifacts, and both the frontend and backend components of the application. The application is deployed on a Streamlit droplet to provide a cloud hosting solution.
 
