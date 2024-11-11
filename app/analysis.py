@@ -65,7 +65,6 @@ import numpy as np
 import itertools
 from scipy.stats import pearsonr, pointbiserialr
 from sklearn.ensemble import RandomForestClassifier
-# In analysis.py (or the appropriate file)
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -132,7 +131,7 @@ class BivariateAnalysis:
             )
             fig.show()
 
-    # Function for numerical vs target analysis
+    
     def numerical_vs_target(df, target='Churn'):
         numerical_features = df.select_dtypes(include=[float, int]).columns
         for feature in numerical_features:
@@ -152,7 +151,7 @@ class BivariateAnalysis:
             )
             fig.show()
 
-    # Function for categorical vs target analysis
+    
     def categorical_vs_target(df, target='Churn'):
         categorical_features = df.select_dtypes(include=[object]).columns
         for feature in categorical_features:
@@ -176,7 +175,6 @@ class BivariateAnalysis:
             )
             fig.show()
 
-    # Function for feature importance
     def feature_importance(df, target_column):
         X = df.drop(columns=[target_column])
         y = df[target_column]

@@ -5,15 +5,15 @@ from analysis import univariate_analysis, BivariateAnalysis, multivariate_analys
 def eda():
     st.title("Exploratory Data Analysis")
 
-    # Load dataset (use your actual data loading method)
+    
     data = pd.read_csv("extracted/customer_churn_dataset-training-master.csv")
     data.drop("CustomerID",axis = 1,inplace = True)
-    # Display dataset preview
+  
     data.dropna(axis=0,inplace = True,how = "all")
     st.header("Dataset Overview")
     st.dataframe(data.head())
 
-    # Create a dropdown menu for selecting analysis type
+   
     st.subheader("Select Analysis Type")
     analysis_type = st.selectbox(
         "Select Analysis Type",
@@ -25,7 +25,7 @@ def eda():
         column = st.selectbox("Select a column for univariate analysis", data.columns, key="uni")
         plot_type = st.selectbox("Select plot type", ["Histogram", "Boxplot", "Pie Chart", "Bar Plot"], key="uni_plot")
 
-        # Run the univariate analysis when the button is clicked
+      
         if st.button("Generate Univariate Plot", key="uni_button"):
             if column:
                 univariate_analysis(data, column, plot_type)
@@ -39,7 +39,7 @@ def eda():
         plot_type = st.selectbox("Select plot type", ["Scatter Plot", "Bar Plot", "Boxplot"], key="bi_plot")
 
         if st.button("Generate Bivariate Plot", key="bi_button"):
-        # Validate if both columns are numerical
+        
             if pd.api.types.is_numeric_dtype(data[column_x]) and pd.api.types.is_numeric_dtype(data[column_y]):
                 analysis = BivariateAnalysis()
                 analysis.numerical_vs_numerical(data, column_x, column_y, plot_type)
@@ -69,13 +69,13 @@ def eda():
             ["Correlation Heatmap", "Scatter Matrix"]
         )
 
-        # Run the multivariate analysis when the button is clicked
+       
         if st.button("Generate Multivariate Plot", key="multi_button"):
             if columns:
-                # Pass the selected plot type to the multivariate_analysis function
+                
                 multivariate_analysis(data, columns, plot_type)
             else:
                 st.warning("Please select columns for multivariate analysis.")
-# Run the EDA function if the script is executed
+
 if __name__ == "__main__":
     eda()

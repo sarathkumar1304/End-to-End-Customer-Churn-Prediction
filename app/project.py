@@ -41,22 +41,16 @@ def project_ui():
     st
 
     if st.button("Predict Churn"):
-    # Make prediction using the model
+    
         prediction = make_prediction(input_data)
     
         if prediction is not None:
-            # st.write(prediction)  # Optional: Display the raw prediction output
-            
-            # Check if the prediction is in the expected format
             if isinstance(prediction, dict) and 'predictions' in prediction:
                 if len(prediction['predictions']) > 0:
-                    # Extract the first prediction value and convert it to an integer
-                    churn_value = int(prediction['predictions'][0])  # Converts float to int
                     
-                    # Determine the churn prediction
+                    churn_value = int(prediction['predictions'][0]) 
                     churn_prediction = "Will Churn" if churn_value == 1 else "Won't Churn"
                     
-                    # Display the churn prediction result
                     st.success(churn_prediction)
                 else:
                     st.error("No predictions found.")
