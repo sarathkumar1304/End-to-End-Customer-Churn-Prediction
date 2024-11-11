@@ -1,0 +1,123 @@
+version: "3.8"
+
+services:
+  # Step 1: Run Pipeline with ZenML and MLflow setup
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      bash -c "
+      zenml integration install mlflow -y &&
+      zenml experiment-tracker register mlflow_tracker_customer_churn_new_3 --flavor=mlflow ||
+      zenml model-deployer register mlflow_customer_churn_new_3 --flavor=mlflow ||
+      zenml stack register mlflow_stack_customer_churn_new_3 -a default -o default -d mlflow -e mlflow_tracker_customer_churn_new_3 --set &&
+      python3 run_pipeline.py
+      "
+    volumes:
+      - .:/app
+    working_dir: /app
+    restart: "no"  
+
+  # Step 2: Run Deployment
+  deployment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      bash -c "
+      zenml integration install mlflow -y &&
+      zenml experiment-tracker register mlflow_tracker_customer_churn_new_3 --flavor=mlflow &&
+      zenml model-deployer register mlflow_customer_churn_new_3 --flavor=mlflow &&
+      zenml stack register mlflow_stack_customer_churn_new_3 -a default -o default -d mlflow -e mlflow_tracker_customer_churn_new_3 --set &&
+      zenml stack set mlflow_stack_customer_churn_new_3 &&
+      python3 run_deployment.py
+      "
+    depends_on:
+      - pipeline
+    volumes:
+      - .:/app
+    working_dir: /app
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]  # Adjust URL for deployment health check
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 5s
+
+  # Step 3: Run Backend Services and UI
+  fastapi_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["uvicorn", "app.backend.fastapi_app:app", "--host", "0.0.0.0", "--port", "8001"]
+    depends_on:
+      - deployment
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8001:8001"
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]  # Adjust URL for FastAPI health check
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 5s
+
+  flask_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python3", "app/backend/flask_app.py"]
+    depends_on:
+      - deployment
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "5000:5000"
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]  # Adjust URL for Flask health check
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 5s
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["streamlit", "run", "app/main.py"]
+    depends_on:
+      - fastapi_service
+      - flask_service
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8501:8501"
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/health"]  # Adjust URL for Streamlit health check
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 5s
+
+  # Optional: MLflow Service if needed
+  # mlflow:
+  #   image: mlflow/mlflow:2.4.1
+  #   environment:
+  #     - MLFLOW_TRACKING_URI=http://0.0.0.0:5000
+  #     - MLFLOW_BACKEND_STORE_URI=file:/home/sarath_kumar/.config/zenml/local_stores/b878ca30-c25c-4712-9a5a-a299384dcb87/mlruns
+  #     - MLFLOW_ARTIFACT_ROOT=/mlflow/artifacts
+  #   ports:
+  #     - "5000:5000"
+  #   volumes:
+  #     - /home/sarath_kumar/.config/zenml/local_stores:/home/sarath_kumar/.config/zenml/local_stores  # Mount ZenML store
+  #     - ./mlflow:/mlflow  # Optional volume for artifacts
+  #   restart: always
