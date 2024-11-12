@@ -1,3 +1,5 @@
 notebook/eda.ipynb filter=lfs diff=lfs merge=lfs -text
 .html filter=lfs diff=lfs merge=lfs -text
 *.html filter=lfs diff=lfs merge=lfs -text
+frontend/reports/*.html filter=lfs diff=lfs merge=lfs -text
+backend/reports/*.html filter=lfs diff=lfs merge=lfs -text
