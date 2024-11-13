@@ -1,34 +1,76 @@
 import plotly.express as px
 import streamlit as st
 import pandas as pd
+import numpy as np
+import itertools
+from scipy.stats import pearsonr, pointbiserialr
+from sklearn.ensemble import RandomForestClassifier
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# def univariate_analysis(data, column, plot_type):
+#     if plot_type == "Histogram":
+#         if data[column].dtype=="int64" or data[column].dtype=="float64":
+#             fig = px.histogram(data, x=column, title=f'Histogram of {column}')
+#             st.plotly_chart(fig)
+#         else:
+#             st.warning("Histograms are only suitable for numerical columns.")
+
+#     elif plot_type == "Boxplot":
+#         if data[column].dtype=="int64" or data[column].dtype=="float64":
+#             fig = px.box(data, y=column, title=f'Boxplot of {column}')
+#             st.plotly_chart(fig)
+#         else:
+#             st.warning("Boxplots are only suitable for numerical columns.")
+#     elif plot_type == "Pie Chart":
+#         if data[column].dtype == 'object' or pd.api.types.is_categorical_dtype(data[column]):
+#             fig = px.pie(data, names=column, title=f'Pie Chart of {column}')
+#             st.plotly_chart(fig)
+#         else:
+#             st.warning("Pie charts are only suitable for categorical columns.")
+#     elif plot_type == "Bar Plot":
+#         if data[column].dtype == 'object' or pd.api.types.is_categorical_dtype(data[column]):
+#             fig = px.bar(data[column].value_counts().reset_index(), x='index', y=column, title=f'Bar Plot of {column}')
+#             st.plotly_chart(fig)
+#         else:
+#             st.warning("Bar plots are only suitable for categorical columns.")
+
+import pandas as pd
+import plotly.express as px
+import streamlit as st
 
 def univariate_analysis(data, column, plot_type):
     if plot_type == "Histogram":
-        if data[column].dtype=="int64" or data[column].dtype=="float64":
+        if data[column].dtype == "int64" or data[column].dtype == "float64":
             fig = px.histogram(data, x=column, title=f'Histogram of {column}')
             st.plotly_chart(fig)
         else:
             st.warning("Histograms are only suitable for numerical columns.")
 
     elif plot_type == "Boxplot":
-        if data[column].dtype=="int64" or data[column].dtype=="float64":
+        if data[column].dtype == "int64" or data[column].dtype == "float64":
             fig = px.box(data, y=column, title=f'Boxplot of {column}')
             st.plotly_chart(fig)
         else:
             st.warning("Boxplots are only suitable for numerical columns.")
+            
     elif plot_type == "Pie Chart":
         if data[column].dtype == 'object' or pd.api.types.is_categorical_dtype(data[column]):
             fig = px.pie(data, names=column, title=f'Pie Chart of {column}')
             st.plotly_chart(fig)
         else:
             st.warning("Pie charts are only suitable for categorical columns.")
+            
     elif plot_type == "Bar Plot":
         if data[column].dtype == 'object' or pd.api.types.is_categorical_dtype(data[column]):
-            fig = px.bar(data[column].value_counts().reset_index(), x='index', y=column, title=f'Bar Plot of {column}')
+            # Get value counts and reset index, then rename columns for Plotly
+            data_count = data[column].value_counts().reset_index()
+            data_count.columns = ['index', column]  # Renaming columns
+            
+            fig = px.bar(data_count, x='index', y=column, title=f'Bar Plot of {column}')
             st.plotly_chart(fig)
         else:
             st.warning("Bar plots are only suitable for categorical columns.")
-
 
 
 # def multivariate_analysis(data, columns):
@@ -58,15 +100,7 @@ def multivariate_analysis(data, columns, plot_type):
         else:
             st.warning("Please select at least two columns for a scatter plot matrix.")
 
-import pandas as pd
-import plotly.express as px
-import streamlit as st
-import numpy as np
-import itertools
-from scipy.stats import pearsonr, pointbiserialr
-from sklearn.ensemble import RandomForestClassifier
-import seaborn as sns
-import matplotlib.pyplot as plt
+
 
 class BivariateAnalysis:
     def numerical_vs_numerical(self, data, column_x, column_y, plot_type):

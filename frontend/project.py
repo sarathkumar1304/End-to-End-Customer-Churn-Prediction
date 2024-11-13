@@ -51,7 +51,7 @@ def project_ui():
             churn_prediction = "Will Churn" if churn_value == 1 else "Won't Churn"
             st.success(f"Prediction: {churn_prediction}")
         else:
-            st.error("Prediction request failed. We are using local model ")
+            st.write("Prediction request failed. We are using local model ")
             with open("backend/artifacts/XGBoost.pkl","rb") as file:
                 model= pickle.load(file)
             result = model.predict(input_data)

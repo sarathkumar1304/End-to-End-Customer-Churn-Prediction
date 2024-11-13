@@ -13,7 +13,7 @@ The main objective of this application is to develop a machine learning model th
 - **ZenML** -  A tool to create reproducible ML pipelines.
 - **MLflow** -  For tracking experiments and managing model lifecycle.
 - **Streamlit** -  A user-friendly UI framework for creating interactive web applications.
-- **FastAPI & Flask** - Back-end frameworks to build APIs for model interactions.
+- **FastAPI** - Back-end frameworks to build APIs for model prediction server.
 - **Evidently Ai** - A tool for Model Monitering and data drift detection.
 
 ## 📝 Overview
@@ -23,19 +23,19 @@ This design document outlines the development of a web application for predictin
 ## :snake: Python Requirements 
 Let's jumpt into python packages you need. you need run below commands in python enivironmemt
 
-    ```
-    mkdir customer_churn_prediction
+```
+mkdir customer_churn_prediction
 
-    cd customer_churn_prediction
+cd customer_churn_prediction
 
-    git clone https://github.com/sarathkumar1304/customer_chrun_prediction.git
+git clone https://github.com/sarathkumar1304/End-to-End-Customer-Churn-Prediction
 
-    python3 -m venv venv
-    ```
+python3 -m venv venv
+```
 
 Activate your virtual environment
 
-    ```pip install requirements.txt```
+```pip install requirements.txt```
 
 
 
@@ -61,6 +61,12 @@ python3 run_pipeline.py
 
 run_pipeline.py has all the combined python scripts to run the pipeline at one place.Now we can visualize the pipeline in your web browser.
 
+we can the dashboard like below 
+![datapipeline-image](assets/datapipeline.png)
+
+
+
+
 Before the deployment we need run some commands, to intergrate with **MLFlow** for Experiment trackering  and model registry.
 
 ```
@@ -72,6 +78,10 @@ zenml model-deployer register mlflow_customer_churn --flavor=mlflow
 
 zenml stack register mlflow_stack_customer_churn -a default -o default -d mlflow -e mlflow_tracker_customer_churn --set
 ```
+
+![datapipeline-2](assets/datapipeline-2.png)
+
+![datapipeline-3](assets/datapipeline-3.png)
 
 After running this command we can track the experiment in mlflow dashboard locally.
 
@@ -85,8 +95,15 @@ After running this command we  successfully deploy the model in mlflow server th
 Run the below command to launch the streamlit ui.
 
 ```
-streamlit run app/main.py`
+streamlit run frontend/main.py
 ```
+
+or we can run whole project using **Docker** by running the below command 
+
+```
+docker-compose up --build 
+```
+ It will run the whole project at once without any error.
 
 
 
@@ -105,14 +122,15 @@ The project's success will be measured using the following metrics:
 - The model should demonstrate high accuracy in predictions.
 
 ### 🚧 Constraints
-- The application must be built using FastAPI , Flask and Streamlit, with deployment on GCP  and Containerizer using Docker
+- The application is built using FastAPI as backend and Streamlit as front end , with deployment on Streamlit cloud  and Containerizer using Docker
 
 ## ⚙️ Methodology
 - **Problem Statement**: Develop a model to predict customer churn based on various features.
 - **Data**: Utilize a dataset containing customer-related features such as demographics and service usage.
-- **Techniques**: Employ data ingestion,  data preprocessing, feature engineering, model selection, training, and evaluation.
-**zenml** for 
-**MLFlow** for experiment tracking and model registry.
+- **Techniques**: Employ data ingestion,  data preprocessing, feature engineering, model selection, training,  evaluation and model deployment.
+- **zenml :** for  creating reproducible ML pipeline.
+- **MLFlow:** for experiment tracking and model registry.
+- **Docker :** for containerization the whole project.
 
 ## 🏛️ Architecture
 The architecture of the web application consists of:
@@ -120,7 +138,7 @@ The architecture of the web application consists of:
 - A **backend** server implemented with FastAPI for handling requests and serving predictions.
 - A **machine learning model** for churn prediction.
 - Utilization of **Docker** for containerization.
-- Hosting on **Google Cloud Platform** with a CI/CD pipeline for automated deployment.
+- Hosting on **Streamlit Cloud** with a CI/CD pipeline for automated deployment.
 
 
 ## 🖇️ Pipeline 
@@ -151,10 +169,14 @@ The pipeline follows the following sequence of steps:
 
 **CI/CD Pipeline:** The pipeline is automated using GitHub Actions, which allows for continuous integration and deployment of the application. This automation ensures that the application is always up-to-date and provides a consistent experience for users.
 
+### 🕹️ Streamlit App 
+
+There is a live demo of this project using Streamlit which you can find [here](https://www.streamlit.com) 
+
 
 ## Data Report 
 
-### Data Drift Detection
+### Data Drift Detection using Evidently ai 
 
 ![image](assets/datadrift.png)
 
@@ -164,7 +186,7 @@ The pipeline follows the following sequence of steps:
 ![image](assets/datadrift-3.png)
 
 
-## Classification Perfomance
+## Classification Perfomance using Evidently AI
 
 ![image](assets/classificationperformance.png)
 
