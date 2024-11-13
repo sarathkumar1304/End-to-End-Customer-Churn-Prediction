@@ -171,7 +171,7 @@ The pipeline follows the following sequence of steps:
 
 ### 🕹️ Streamlit App 
 
-There is a live demo of this project using Streamlit which you can find [here](https://www.streamlit.com) 
+There is a live demo of this project using Streamlit which you can find [here](https://end-to-end-customer-churn-prediction-9en8mwgk9xqgy8z7envfmm.streamlit.app/) 
 
 
 ## Data Report 
