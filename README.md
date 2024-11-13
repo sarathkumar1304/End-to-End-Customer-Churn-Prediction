@@ -124,7 +124,7 @@ The architecture of the web application consists of:
 
 ## 🖇️ Pipeline 
 
-![Image](assets/architecture.png)
+![Image](assets/Pipeline.png)
 
 The MLOps (Machine Learning Operations) pipeline project is designed to create an end-to-end workflow for developing and deploying a web application that performs data preprocessing, model training, model evaluation, and prediction. The pipeline leverages Docker containers for encapsulating code, artifacts, and both the frontend and backend components of the application. The application is deployed on a Streamlit droplet to provide a cloud hosting solution.
 
@@ -146,4 +146,4 @@ Streamlit: The Docker container, along with the required dependencies, is deploy
 
 **Prediction:** The deployed model uses the input data from the web application to generate predictions. These predictions are then displayed to the user via the web interface.
 
-CI/CD Pipeline: The pipeline is automated using GitHub Actions, which allows for continuous integration and deployment of the application. This automation ensures that the application is always up-to-date and provides a consistent experience for users.
+**CI/CD Pipeline:** The pipeline is automated using GitHub Actions, which allows for continuous integration and deployment of the application. This automation ensures that the application is always up-to-date and provides a consistent experience for users.

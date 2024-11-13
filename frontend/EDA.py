@@ -3,6 +3,7 @@ import pandas as pd
 from analysis import univariate_analysis, BivariateAnalysis, multivariate_analysis
 
 def eda():
+    st.image("/home/sarath_kumar/customer_churn_predict/assets/eda.webp",width=300)
     st.title("Exploratory Data Analysis")
 
     
