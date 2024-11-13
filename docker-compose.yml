@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     command: >
       bash -c "
+      zenml init &&
       zenml integration install mlflow -y &&
       zenml experiment-tracker register mlflow_tracker_customer_churn_new --flavor=mlflow &&
       zenml model-deployer register mlflow_customer_churn_new --flavor=mlflow &&
