@@ -166,10 +166,10 @@ The pipeline follows the following sequence of steps:
 
 ## Classification Perfomance
 
-![image](assets/classification performance.png)
+![image](assets/classificationperformance.png)
 
 
-![image](assets/classification perfomance -2.png)
+![image](assets/classificationperfomance-2.png)
 
-![image](assets/classification perfomance -3.png)
+![image](assets/classificationperfomance-3.png)
 
