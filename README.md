@@ -14,6 +14,7 @@ The main objective of this application is to develop a machine learning model th
 - **MLflow** -  For tracking experiments and managing model lifecycle.
 - **Streamlit** -  A user-friendly UI framework for creating interactive web applications.
 - **FastAPI & Flask** - Back-end frameworks to build APIs for model interactions.
+- **Evidently Ai** - A tool for Model Monitering and data drift detection.
 
 ## 📝 Overview
 This design document outlines the development of a web application for predicting customer churn using a dataset that includes customer Age, Support Calls , Usage Frequency, Last Interaction, Tenure, Contract Length. The application will allow users to input customer data and receive predictions on churn likelihood.
@@ -126,7 +127,7 @@ The architecture of the web application consists of:
 
 ![Image](assets/Pipeline.png)
 
-The MLOps (Machine Learning Operations) pipeline project is designed to create an end-to-end workflow for developing and deploying a web application that performs data preprocessing, model training, model evaluation, and prediction. The pipeline leverages Docker containers for encapsulating code, artifacts, and both the frontend and backend components of the application. The application is deployed on a Streamlit droplet to provide a cloud hosting solution.
+The MLOps (Machine Learning Operations) pipeline project is designed to create an end-to-end workflow for developing and deploying a web application that performs data preprocessing, model training, model evaluation, and prediction. The pipeline leverages Docker containers for encapsulating code, artifacts, and both the frontend and backend components of the application. The application is deployed on a Streamlit  to provide a cloud hosting solution.
 
 The pipeline follows the following sequence of steps:
 
@@ -140,10 +141,12 @@ The pipeline follows the following sequence of steps:
 
 **Docker Container:** The pipeline utilizes Docker containers to package the application code, model artifacts, and both the frontend and backend components. This containerization ensures consistent deployment across different environments and simplifies the deployment process.
 
-Streamlit: The Docker container, along with the required dependencies, is deployed on a DigitalOcean droplet. DigitalOcean provides a cloud hosting solution that allows for scalability, reliability, and easy management of the web application.
+**Streamlit:** The Docker container, along with the required dependencies, is deployed on a  droplet Streamlit. Streamlit provides a cloud hosting solution that allows for scalability, reliability, and easy management of the web application.
 
 **Web App:** The web application is accessible via a web browser, providing a user-friendly interface for interacting with the prediction functionality. Users can input new data and obtain predictions from the deployed model.
 
 **Prediction:** The deployed model uses the input data from the web application to generate predictions. These predictions are then displayed to the user via the web interface.
+
+**Evidently AI :** A tools for model monitering and data drifting detection when new data comes in. 
 
 **CI/CD Pipeline:** The pipeline is automated using GitHub Actions, which allows for continuous integration and deployment of the application. This automation ensures that the application is always up-to-date and provides a consistent experience for users.
