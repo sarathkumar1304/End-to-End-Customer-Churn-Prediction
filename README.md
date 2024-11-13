@@ -150,3 +150,26 @@ The pipeline follows the following sequence of steps:
 **Evidently AI :** A tools for model monitering and data drifting detection when new data comes in. 
 
 **CI/CD Pipeline:** The pipeline is automated using GitHub Actions, which allows for continuous integration and deployment of the application. This automation ensures that the application is always up-to-date and provides a consistent experience for users.
+
+
+## Data Report 
+
+### Data Drift Detection
+
+![image](assets/datadrift.png)
+
+![image](assets/datadrift-2.png)
+
+
+![image](assets/datadrift-3.png)
+
+
+## Classification Perfomance
+
+![image](assets/classification performance.png)
+
+
+![image](assets/classification perfomance -2.png)
+
+![image](assets/classification perfomance -3.png)
+
