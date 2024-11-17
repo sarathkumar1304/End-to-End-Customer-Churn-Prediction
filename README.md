@@ -181,7 +181,7 @@ Check out the demo of my project on YouTube: [Watch Video](https://www.youtube.c
 
 
 <video width="600" controls>
-  <source src="https://www.youtube.com/embed/dQw4w9WgXcQ" type="video/mp4">
+  <source src="https://youtu.be/Nj-ICiTPJYA" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
