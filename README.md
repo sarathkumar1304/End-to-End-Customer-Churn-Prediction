@@ -179,6 +179,7 @@ There is a live demo of this project using Streamlit which you can find [here](h
 
 Check out the demo of my project on YouTube: [Watch Video](https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25)
 
+[![Project Video](assets/customer.webp)](https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25)
 
 
 
