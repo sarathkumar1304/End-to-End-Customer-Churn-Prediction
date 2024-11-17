@@ -175,9 +175,8 @@ There is a live demo of this project using Streamlit which you can find [here](h
 
 ## Video
 
-<video width = "600" controls>
-<source src = "assets/streamlit-recording.mp4" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Data Report 
 
