@@ -31,3 +31,6 @@ async def make_prediction(input_data: InputData):
         raise HTTPException(status_code=response.status_code, detail=str(err))
     except requests.exceptions.RequestException as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# uvicorn backend.fastapi_app:app --port 8001

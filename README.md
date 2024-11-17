@@ -173,6 +173,11 @@ The pipeline follows the following sequence of steps:
 
 There is a live demo of this project using Streamlit which you can find [here](https://end-to-end-customer-churn-prediction-9en8mwgk9xqgy8z7envfmm.streamlit.app/) 
 
+## Video
+
+<video width = "600" controls>
+<source src = "assets/streamlit-recording.mp4" type="video/mp4">
+</video>
 
 ## Data Report 
 

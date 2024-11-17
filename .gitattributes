@@ -5,3 +5,4 @@ backend/reports/*.html filter=lfs diff=lfs merge=lfs -text
 .ipynb filter=lfs diff=lfs merge=lfs -text
 test_data/*.csv filter=lfs diff=lfs merge=lfs -text
 notebook/*.ipynb filter=lfs diff=lfs merge=lfs -text
+.mp4 filter=lfs diff=lfs merge=lfs -text

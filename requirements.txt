@@ -174,5 +174,5 @@ widgetsnbextension==4.0.13
 wrapt==1.16.0
 xgboost==2.1.2
 yarl==1.17.1
-zenml==0.68.1
+zenml==0.70.0
 zipp==3.20.2

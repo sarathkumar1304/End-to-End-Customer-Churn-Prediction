@@ -13,14 +13,14 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="mlflow")
 
 
-logging.basicConfig(
-    level=logging.INFO,  # Set the logging level to INFO
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("logging.log"),  # Log to a file
-        logging.StreamHandler()  # Also log to console
-    ]
-)
+# logging.basicConfig(
+#     level=logging.INFO,  # Set the logging level to INFO
+#     format='%(asctime)s - %(levelname)s - %(message)s',
+#     handlers=[
+#         logging.FileHandler("logging.log"),  # Log to a file
+#         logging.StreamHandler()  # Also log to console
+#     ]
+# )
 @pipeline(
     model=Model(
         name="customer_churn_prediction",
