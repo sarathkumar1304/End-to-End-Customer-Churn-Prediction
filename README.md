@@ -177,13 +177,10 @@ There is a live demo of this project using Streamlit which you can find [here](h
 
 ## Project Video
 
-Check out the demo of my project on YouTube: [Watch Video](https://www.youtube.com/embed/dQw4w9WgXcQ)
+Check out the demo of my project on YouTube: [Watch Video](https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25)
 
 
-<video width="600" controls>
-  <source src="https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
 
 ## Data Report 
 
