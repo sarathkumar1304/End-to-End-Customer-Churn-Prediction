@@ -175,10 +175,13 @@ There is a live demo of this project using Streamlit which you can find [here](h
 
 ## Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Project Video
+
+Check out the demo of my project on YouTube: [Watch Video](https://www.youtube.com/embed/dQw4w9WgXcQ)
+
 
 <video width="600" controls>
-  <source src="vhttps://www.youtube.com/embed/dQw4w9WgXcQ" type="video/mp4">
+  <source src="https://www.youtube.com/embed/dQw4w9WgXcQ" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
