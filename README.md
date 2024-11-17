@@ -177,11 +177,11 @@ There is a live demo of this project using Streamlit which you can find [here](h
 
 ## Project Video
 
-Check out the demo of my project on YouTube: [Watch Video](https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25)
+Check out the demo of my project on YouTube: [Watch Video](https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25) below
 
 [![Project Video](assets/customer.webp)](https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25)
 
-<iframe width="560" height="315" src="https://youtu.be/Nj-ICiTPJYA?si=EUfhNkFQ3PF47V25" frameborder="0" allowfullscreen></iframe>
+<if
 
 
 ## Data Report 
