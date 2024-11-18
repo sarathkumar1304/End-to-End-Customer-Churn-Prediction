@@ -15,6 +15,7 @@ The main objective of this application is to develop a machine learning model th
 - **Streamlit** -  A user-friendly UI framework for creating interactive web applications.
 - **FastAPI** - Back-end frameworks to build APIs for model prediction server.
 - **Evidently Ai** - A tool for Model Monitering and data drift detection.
+- **Huffing Face** - Web application is deployed in hugging face 
 
 ## 📝 Overview
 This design document outlines the development of a web application for predicting customer churn using a dataset that includes customer Age, Support Calls , Usage Frequency, Last Interaction, Tenure, Contract Length. The application will allow users to input customer data and receive predictions on churn likelihood.
@@ -138,7 +139,7 @@ The architecture of the web application consists of:
 - A **backend** server implemented with FastAPI for handling requests and serving predictions.
 - A **machine learning model** for churn prediction.
 - Utilization of **Docker** for containerization.
-- Hosting on **Streamlit Cloud** with a CI/CD pipeline for automated deployment.
+- Hosting on **Hugging Face** with a CI/CD pipeline for automated deployment.
 
 
 ## 🖇️ Pipeline 
@@ -159,7 +160,7 @@ The pipeline follows the following sequence of steps:
 
 **Docker Container:** The pipeline utilizes Docker containers to package the application code, model artifacts, and both the frontend and backend components. This containerization ensures consistent deployment across different environments and simplifies the deployment process.
 
-**Streamlit:** The Docker container, along with the required dependencies, is deployed on a  droplet Streamlit. Streamlit provides a cloud hosting solution that allows for scalability, reliability, and easy management of the web application.
+**Streamlit:** The Docker container, along with the required dependencies, is deployed on  Streamlit. Streamlit provides a cloud hosting solution that allows for scalability, reliability, and easy management of the web application.
 
 **Web App:** The web application is accessible via a web browser, providing a user-friendly interface for interacting with the prediction functionality. Users can input new data and obtain predictions from the deployed model.
 
@@ -171,7 +172,7 @@ The pipeline follows the following sequence of steps:
 
 ### 🕹️ Streamlit App 
 
-There is a live demo of this project using Streamlit which you can find [here](https://end-to-end-customer-churn-prediction-9en8mwgk9xqgy8z7envfmm.streamlit.app/) 
+There is a live demo of this project using Streamlit which you can find [here](https://huggingface.co/spaces/Sarathkumar1304ai/streamlitwebapp) 
 
 ## Video
 
